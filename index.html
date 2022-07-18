@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+  <body>
+    <h1>Online Score</h1>
+    <div id="scores">
+    </div>
+  </body>
+  <style>
+    li {
+     display: flex;
+     border-style: groove;
+     justify-content: space-between;
+     padding: 15px;
+     margin: 20px;
+     border-radius: 6px;
+     background: aliceblue;
+    }
+  </style>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on('new_data', function(msg) {
+    console.info(msg);
+    const { old_val, new_val } = msg;
+    if (!new_val.team1) return
+
+    const team1 = new_val.team1;
+    const team1Element = document.createElement('span');
+    team1Element.id = new_val.id + 'team1'
+    team1Element.textContent = team1;
+
+    const team2 = new_val.team2;
+    const team2Element = document.createElement('span');
+    team2Element.id = new_val.id + 'team2'
+    team2Element.textContent = team2;
+
+    const scoreElement = document.createElement('span');
+    scoreElement.id = new_val.id + 'score'
+    scoreElement.textContent = new_val.score[0] + "  :  " +  new_val.score[1];
+    if(document.getElementById(new_val.id + 'score')) {
+        const oldElement = document.getElementById(new_val.id + 'score');
+        scoreElement.style.color = 'red';
+        setTimeout(()=>{
+          scoreElement.style.color = 'black'
+        }, 500)
+        oldElement.replaceWith(scoreElement)
+    } else {
+      const row = document.createElement('li');
+      row.id = new_val.id + 'row'
+      row.appendChild(team1Element);
+      row.appendChild(scoreElement)
+      row.appendChild(team2Element);
+      console.log({ team1, team2, new_val });
+      (document.getElementById("scores")).appendChild(row);
+    }
+  });
+</script>
+</html>

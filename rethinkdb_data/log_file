@@ -1,0 +1,8 @@
+2022-07-16T14:00:12.177794000 0.054946s notice: Recursively removing directory /Users/pshaddel/Desktop/Projects/news_app_rethinkdb/rethinkdb_data/tmp
+2022-07-16T14:00:12.180599000 0.057751s notice: Initializing directory /Users/pshaddel/Desktop/Projects/news_app_rethinkdb/rethinkdb_data
+2022-07-16T14:00:12.180719000 0.057871s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/pshaddel/Desktop/Projects/news_app_rethinkdb/rethinkdb_data' did not already exist or is empty.)
+2022-07-16T14:00:12.180898000 0.058050s notice: Running rethinkdb 2.4.2 (CLANG 13.1.6 (clang-1316.0.21.2))...
+2022-07-16T14:00:12.188143000 0.065295s notice: Running on Darwin 21.5.0 x86_64
+2022-07-16T14:00:12.188236000 0.065388s notice: Loading data from directory /Users/pshaddel/Desktop/Projects/news_app_rethinkdb/rethinkdb_data
+2022-07-16T14:00:12.378795000 0.255941s info: Automatically using cache size of 531 MB
+2022-07-16T14:00:12.380191000 0.257337s error: TCP socket creation failed for port 29015: Address already in use.
